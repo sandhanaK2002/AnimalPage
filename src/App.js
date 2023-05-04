@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import {ProfileCard} from "./ProfileCard"
+import alexa from "./images/alexa.png"
+import cortana from "./images/cortana.png"
+import siri from "./images/siri.png"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const App = () =>{
+ return (
+
+
+    <div className="container">
+    <section className="section">
+      <div className="columns">
+        <div className="column is-4">
+          <ProfileCard
+            title="Alexa"
+            handle="@alexa99"
+            image={alexa}
+            description="Alexa was created by Amazon and helps you buy things."
+          />
+        </div>
+        <div className="column is-4">
+          <ProfileCard
+            title="Cortana"
+            handle="@cortana32"
+            image={cortana}
+            description="Cortana was made by Microsoft. Who knows what it does?"
+          />
+        </div>
+        <div className="column is-4">
+          <ProfileCard
+            title="Siri"
+            handle="@siri01"
+            image={siri}
+            description="Siri was made by Apple and is being phased out"
+          />
+        </div>
+      </div>
+    </section>
+  </div>
+
+ )
 }
 
-export default App;
+
