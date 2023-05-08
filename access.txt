@@ -1,0 +1,7 @@
+Access token =  HXBqzR324rI59aWqf0UZDM5xgE7fVKYUMgangLw7cu4
+
+url  = https://api.unsplash.com/search/photos
+3 steps for fetching data from api 
+1. documentation > Location 
+2.  Authorization > PublicAuthorization
+3.  Search > photos 

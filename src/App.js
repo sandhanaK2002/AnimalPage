@@ -1,28 +1,47 @@
-import './App.css';
 import { useState } from 'react';
-import AnimalShow from './AnimalShow';
-
-function getRandomAnimal() {
-  const animals = ['bird', 'cat', 'cow', 'dog', 'gator', 'horse'];
-
-  return animals[Math.floor(Math.random() * animals.length)];
-}
+import BookCreate from './components/BookCreate';
+import BookList from './components/BookList';
 
 function App() {
-  const [animals, setAnimals] = useState([]);
+  const [books, setBooks] = useState([]);
 
-  const handleClick = () => {
-    setAnimals([...animals, getRandomAnimal()]);
+  const editBookById =(id , title)=>{
+   
+    const updatedBooks = books.map((book)=>{
+       if(book.id === id){
+          return {...book , title}
+       }
+       return books
+    })
+    setBooks(updatedBooks)
+  }
+
+
+
+
+  const deleteBookById = (id) => {
+    const updatedBooks = books.filter((book) => {
+      return book.id !== id;
+    });
+
+    setBooks(updatedBooks);
   };
 
-  const renderedAnimals = animals.map((animal, index) => {
-    return <AnimalShow key={index} type={animal} />;
-  });
+  const createBook = (title) => {
+    const updatedBooks = [
+      ...books,
+      {
+        id: Math.round(Math.random() * 9999),
+        title,
+      },
+    ];
+    setBooks(updatedBooks);
+  };
 
   return (
     <div className="app">
-      <button onClick={handleClick}>Add Animal</button>
-      <div className="animal-list">{renderedAnimals}</div>
+      <BookList books={books} onDelete={deleteBookById} onEdit={editBookById}/>
+      <BookCreate onCreate={createBook} />
     </div>
   );
 }
