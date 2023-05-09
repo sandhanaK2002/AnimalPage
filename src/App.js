@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import {useContext} from "react";
+import BookContext from "./context/books"
 import BookCreate from './components/BookCreate';
 import BookList from './components/BookList';
 import axios from 'axios';
@@ -6,6 +8,9 @@ import { useEffect } from 'react';
 
 function App() {
   const [books, setBooks] = useState([]);
+
+  const num = useContext(BookContext)
+  console.log(num)
 
 
   const fetchBooks = async()=>{
